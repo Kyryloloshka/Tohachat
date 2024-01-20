@@ -228,11 +228,11 @@
 
   /* Post Card */
   .post-card {
-    @apply bg-dark-2 rounded-3xl border border-dark-4 p-5 lg:p-7 w-full max-w-screen-sm;
+    @apply overflow-hidden bg-dark-2 rounded-2xl border border-dark-4 lg:p-7 w-full max-w-screen-sm;
   }
 
   .post-card_img {
-    @apply h-64 xs:h-[400px] lg:h-[450px] w-full rounded-[24px] object-cover mb-5;
+    @apply max-h-[600px] w-full object-cover;
   }
 
   /* Topbar */

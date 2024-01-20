@@ -90,22 +90,18 @@ export async function signOutAccount() {
 
 export async function createPost(post: INewPost) {
     try {
-        // Upload file to appwrite storage
         const uploadedFile = await uploadFile(post.file[0]);
 
         if (!uploadedFile) throw Error;
 
-        // Get file url
         const fileUrl = getFilePreview(uploadedFile.$id);
         if (!fileUrl) {
             await deleteFile(uploadedFile.$id);
             throw Error;
         }
 
-        // Convert tags into array
         const tags = post.tags?.replace(/ /g, "").split(",") || [];
 
-        // Create post
         const newPost = await databases.createDocument(
         appwriteConfig.databaseId,
         appwriteConfig.postCollectionID,
@@ -133,9 +129,9 @@ export async function createPost(post: INewPost) {
 export async function uploadFile(file: File) {
     try {
         const uploadedFile = await storage.createFile(
-        appwriteConfig.storageId,
-        ID.unique(),
-        file
+            appwriteConfig.storageId,
+            ID.unique(),
+            file
         );
 
         return uploadedFile;
@@ -147,12 +143,12 @@ export async function uploadFile(file: File) {
 export function getFilePreview(fileId: string) {
     try {
         const fileUrl = storage.getFilePreview(
-        appwriteConfig.storageId,
-        fileId,
-        2000,
-        2000,
-        "top",
-        100
+            appwriteConfig.storageId,
+            fileId,
+            2000,
+            2000,
+            "top",
+            100
         );
 
         if (!fileUrl) throw Error;
@@ -171,4 +167,15 @@ export async function deleteFile(fileId: string) {
     } catch (error) {
         console.log(error);
     }
+}
+
+export async function getRecentPosts() {
+    const posts = await databases.listDocuments(
+        appwriteConfig.databaseId,
+        appwriteConfig.postCollectionID,
+        [Query.orderDesc('$createdAt'), Query.limit(20)]
+    )
+
+    if (!posts) throw Error;
+    return posts;
 }

@@ -21,9 +21,9 @@ const LeftSidebar = () => {
     return (
         <nav className='leftsidebar'>
             <div className="flex flex-col gap-11">
-                <Link to="/" className='flex gap-3 items-center'>
+                <Link to="/" className='flex gap-1 items-center'>
                     <img src="/assets/icons/favicon.ico" alt="logo" width={24} height={24} />
-                    <div className="text-xl">Tohagram</div>
+                    <div className="text-xl font-semibold">Tohagram</div>
                 </Link>
                 <Link to={`/profile/${user.id}`} className='flex gap-3 items-center'>
                     <img 

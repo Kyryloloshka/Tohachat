@@ -118,7 +118,11 @@ const PostForm = ({post}: PostFormProps) => {
                         type="submit"
                         className="shad-button_primary whitespace-nowrap"
                     >
-                        Submit
+                        {
+                            isLoadingCreate ?
+                            "Submitting" :
+                            "Submit"
+                        }
                     </Button>
                 </div>
             </form>
