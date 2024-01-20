@@ -5,6 +5,7 @@ import RootLayout from './_root/RootLayout';
 import { Home } from './_root/pages';
 import SignInForm from './_auth/forms/SignInForm';
 import SignUpForm from './_auth/forms/SignUpForm';
+import { Toaster } from './components/ui/toaster';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route index element={<Home/>}/>
           </Route>
         </Routes>
+        <Toaster />
       </main>
     </>
   );
