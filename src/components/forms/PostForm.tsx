@@ -12,14 +12,19 @@ import { Models } from "appwrite"
 import { useUserContext } from "@/context/AuthContext"
 import { useToast } from "../ui/use-toast"
 import { useNavigate } from "react-router-dom"
-import { useCreatePost} from "@/lib/react-query/querysAndMutations";
+import { useCreatePost, useUpdatePost} from "@/lib/react-query/querysAndMutations";
 
 type PostFormProps = {
     post?: Models.Document
+    action: 'Create' | 'Update'
 }
 
-const PostForm = ({post}: PostFormProps) => {
+const PostForm = ({post, action}: PostFormProps) => {
     const { mutateAsync: createPost, isLoading: isLoadingCreate } = useCreatePost();
+    const { mutateAsync: updatePost, isLoading: isLoadingUpdate } = useUpdatePost();
+    
+    
+    
     const {user} = useUserContext();
     const navigate = useNavigate();
     const {toast} = useToast();
@@ -34,6 +39,20 @@ const PostForm = ({post}: PostFormProps) => {
     })
     
     async function onSubmit(values: zod.infer<typeof PostValidation>) {
+        if (post && action === "Update") {
+            const updatedPost = await updatePost({
+                ...values,
+                postId: post.$id,
+                imageId: post?.imageId,
+                imageUrl: post?.imageUrl,
+            })
+
+            if (!updatedPost) {
+                toast({title: 'Please try again'})
+            }
+            return navigate(`/posts/${post.$id}`)
+        }
+        
         const newPost = await createPost({
             ...values,
             userId: user.id,
@@ -117,11 +136,12 @@ const PostForm = ({post}: PostFormProps) => {
                     <Button 
                         type="submit"
                         className="shad-button_primary whitespace-nowrap"
+                        disabled={isLoadingCreate || isLoadingUpdate}
                     >
                         {
-                            isLoadingCreate ?
-                            "Submitting" :
-                            "Submit"
+                            isLoadingCreate || isLoadingUpdate ?
+                            (action === "Create" ? "Submitting" : "Updating") :
+                            (action === "Create" ? "Submit" : "Update")
                         }
                     </Button>
                 </div>
