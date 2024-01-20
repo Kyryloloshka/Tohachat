@@ -19,9 +19,9 @@ function SignUpForm() {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext()
+  const { checkAuthUser } = useUserContext()
 
-  const { mutateAsync: signInAccount, isLoading: isSigningIn} = useSignInAccount() 
+  const { mutateAsync: signInAccount} = useSignInAccount() 
 
   const { mutateAsync: createUserAccount, isLoading: isCreatingUser } = useCreateUserAccount()
 

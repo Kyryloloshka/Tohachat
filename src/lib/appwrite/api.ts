@@ -14,7 +14,7 @@ export async function createUserAccount(user: INewUser) {
         if (!newAccount) throw new Error;
 
         const avatarUrl = avatars.getInitials(user.name);
-
+        
         const newUser = await saveUserToDB({
             accountId: newAccount.$id,
             name: newAccount.name,
@@ -71,6 +71,17 @@ export async function getCurrentUser() {
         )
         if (!currentUser) throw Error;
         return currentUser.documents[0]
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+export async function signOutAccount() {
+    try {
+        const session = await account.deleteSession("current");
+
+        return session;
     } catch (error) {
         console.log(error);
         
