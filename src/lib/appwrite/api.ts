@@ -361,6 +361,7 @@ export async function getUserById(userId: string) {
             appwriteConfig.userCollectionID,
             userId
         )
+        
         if (!user) throw Error
         return user;
     } catch (error) {
