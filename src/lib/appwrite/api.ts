@@ -26,7 +26,6 @@ export async function createUserAccount(user: INewUser) {
         return newAccount;
     } catch (error) {
         console.log(error);
-        return error
     }
 }
 
@@ -352,5 +351,19 @@ export async function searchPosts(searchTerm: string) {
         return posts;
     } catch (error) {
         console.log(error); 
+    }
+}
+
+export async function getUserById(userId: string) {
+    try {
+        const user = await databases.getDocument(
+            appwriteConfig.databaseId,
+            appwriteConfig.userCollectionID,
+            userId
+        )
+        if (!user) throw Error
+        return user;
+    } catch (error) {
+        console.log(error);
     }
 }
