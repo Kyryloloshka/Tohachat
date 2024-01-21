@@ -153,15 +153,15 @@
   }
 
   .post_details-card {
-    @apply bg-dark-2 w-full max-w-5xl rounded-[30px] flex-col flex xl:flex-row border border-dark-4 xl:rounded-l-[24px];
+    @apply bg-dark-2 w-full max-w-5xl rounded-[20px] overflow-hidden flex-col flex xl:flex-row border border-dark-4 xl:rounded-l-[24px];
   }
 
   .post_details-img {
-    @apply h-80 lg:h-[480px] xl:w-[48%] rounded-t-[30px] xl:rounded-l-[24px] xl:rounded-tr-none object-cover p-5 bg-dark-1;
+    @apply max-h-[600px] min-h-[200px] xl:w-[48%] object-cover;
   }
 
   .post_details-info {
-    @apply bg-dark-2 flex flex-col gap-5 lg:gap-7 flex-1 items-start p-8 rounded-[30px];
+    @apply bg-dark-2 flex flex-col gap-5 lg:gap-7 flex-1 items-start p-5 rounded-[20px];
   }
 
   .post_details-delete_btn {
@@ -228,11 +228,11 @@
 
   /* Post Card */
   .post-card {
-    @apply overflow-hidden bg-dark-2 rounded-2xl border border-dark-4 lg:p-7 w-full max-w-screen-sm;
+    @apply overflow-hidden bg-dark-2 rounded-2xl border border-dark-4 w-full max-w-screen-sm;
   }
 
   .post-card_img {
-    @apply max-h-[600px] w-full object-cover;
+    @apply max-h-[600px] min-h-[200px] w-full object-cover;
   }
 
   /* Topbar */

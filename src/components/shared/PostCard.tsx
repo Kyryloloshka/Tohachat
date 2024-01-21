@@ -13,7 +13,7 @@ const PostCard = ({post}: PostCardProps) => {
     if (!post.creator) return;
     return (
         <div className='post-card'>
-            <div className="flex-between px-5 pt-5">
+            <div className="flex-between p-5">
                 <div className="flex items-center gap-3">
                     <Link to={`/profile/${post.creator.$id}`}>
                         <img
@@ -46,7 +46,7 @@ const PostCard = ({post}: PostCardProps) => {
                 </Link>
             </div>
             <Link to={`/posts/${post.$id}`}>
-                <div className="px-5 small-medium lg:base-medium py-5">
+                <div className="px-5 small-medium lg:base-medium pb-5">
                     <p>
                         {post.caption}
                     </p>
@@ -60,7 +60,9 @@ const PostCard = ({post}: PostCardProps) => {
                 </div>
                 <img className='post-card_img' src={post.imageUrl || '/assets/icons/profile-placeholder.svg'} alt="post image" />
             </Link>
-            <PostStats post={post} userId={user.id} />
+            <div className="p-5">
+                <PostStats post={post} userId={user.id} />
+            </div>
         </div>
     )
 }

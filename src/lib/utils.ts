@@ -6,6 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDateAgo(timestamp: string): string {
+  if (timestamp === 'no-date') return "no-date";
   const currentDate = new Date();
   const previousDate = new Date(timestamp);
 
@@ -24,8 +25,10 @@ export function formatDateAgo(timestamp: string): string {
     return `${hours} hours ago`;
   } else if (minutes > 0) {
     return `${minutes} minutes ago`;
-  } else {
+  } else if (seconds > 30) {
     return `${seconds} seconds ago`;
+  } else {
+    return `Just now`
   }
 }
 

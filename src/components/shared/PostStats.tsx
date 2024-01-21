@@ -4,12 +4,12 @@ import { Models } from "appwrite";
 import { useEffect, useState } from "react";
 
 type PostStatsProps = {
-    post: Models.Document;
+    post?: Models.Document;
     userId: string;
 }
 
 const PostStats = ({ post, userId } : PostStatsProps) => {
-    const likesList = post.likes.map((user: Models.Document) => user.$id);
+    const likesList = post?.likes.map((user: Models.Document) => user.$id);
 
     const [likes, setLikes] = useState(likesList);
     const [isSaved, setIsSaved] = useState(false);
@@ -31,11 +31,11 @@ const PostStats = ({ post, userId } : PostStatsProps) => {
         }
 
         setLikes(newLikes);
-        likePost({postId: post.$id, likesArray: newLikes })
+        likePost({postId: post?.$id || "", likesArray: newLikes })
     }
 
     const savedPostRecord = currentUser?.save.find(
-        (record: Models.Document) => record.post.$id === post.$id
+        (record: Models.Document) => record.post.$id === post?.$id
     );
     
     useEffect(() => {
@@ -46,21 +46,18 @@ const PostStats = ({ post, userId } : PostStatsProps) => {
         e.stopPropagation();
         
         if (savedPostRecord) {
-            console.log("unsaving....");
             
             setIsSaved(false);
             deleteSavedPost(savedPostRecord.$id)
         } else {
-            console.log("saving....");
-            console.log(post.$id, userId);
             
-            savePost({userId, postId: post.$id})
+            savePost({userId, postId: post?.$id || ''})
             setIsSaved(true);
         }
     }
 
     return (
-        <div className="flex justify-between items-center z-20 p-5">
+        <div className="flex justify-between items-center z-20">
             <div className="flex gap-2 mr-5">
                 <img 
                     src={checkIsLiked(likes, userId) 

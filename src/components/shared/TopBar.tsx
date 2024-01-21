@@ -19,8 +19,8 @@ const TopBar = () => {
         <section className='topbar'>
             <div className="flex-between py-4 px-5">
             <Link to="/" className='flex gap-1 items-center'>
-                <img src="/assets/icons/favicon.ico" alt="logo" width={24} height={24} />
-                <div className="text-xl font-semibold">Tohagram</div>
+                <img src="/assets/icons/toha-logo-white.svg" alt="logo" width={40} height={40} />
+                <div className="text-xl font-semibold">Tohachat</div>
             </Link>
                 <div className="flex gap-4">
                     <Button 
