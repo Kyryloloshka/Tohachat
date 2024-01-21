@@ -15,7 +15,7 @@ export async function createUserAccount(user: INewUser) {
 
         const avatarUrl = avatars.getInitials(user.name);
         
-        const newUser = await saveUserToDB({
+        await saveUserToDB({
             accountId: newAccount.$id,
             name: newAccount.name,
             email: newAccount.email,
