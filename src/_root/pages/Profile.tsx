@@ -33,10 +33,10 @@ const Profile = () => {
           />
           <div className="flex flex-col flex-1 justify-between md:mt-2">
             <div className="flex flex-col w-full">
-              <h1 className="text-center xl:text-left h3-bold md:h1-semibold w-full">
+              <h1 className="text-center xl:text-left dark:text-light-1 h3-bold md:h1-semibold w-full">
                 {currentUser.name}
               </h1>
-              <p className="small-regular md:body-medium text-dark-3 text-center xl:text-left">
+              <p className="small-regular md:body-medium text-dark-3 dark:text-light-2 text-center xl:text-left">
                 @{currentUser.username}
               </p>
             </div>
@@ -56,7 +56,7 @@ const Profile = () => {
             <div className={`${user.id !== currentUser.$id && "hidden"}`}>
               <Link
                 to={`/update-profile/${currentUser.$id}`}
-                className={`h-12 bg-light-6 px-5 text-dark-1 flex-center gap-2 rounded-lg ${
+                className={`h-12 bg-light-6 dark:bg-dark-3 px-5 text-dark-1 dark:text-light-2 flex-center gap-2 rounded-lg ${
                   user.id !== currentUser.$id && "hidden"
                 }`}>
                 <img

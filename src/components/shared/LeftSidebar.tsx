@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from '../ui/button';
 import ThemeSwitch from './ThemeSwitch';
-import { useLocalStorage } from 'usehooks-ts';
 
 const LeftSidebar = () => {
     const {mutate: signOut, isSuccess} = useSignOutAccount()
@@ -19,12 +18,13 @@ const LeftSidebar = () => {
             navigate(0);
         }
     }, [isSuccess])
+    const logoSrc = localStorage.getItem("theme") === 'dark' ? "/assets/icons/toha-logo-white.svg" : "/assets/icons/toha-logo-black.svg";
     return (
         <nav className='leftsidebar'>
             <div className="flex flex-col gap-11">
                 <ThemeSwitch/>
                 <Link to="/" className='flex gap-1 items-center'>
-                    {/* <img src={logoSrc} alt="logo" width={40} height={40} /> */}
+                    <img src={logoSrc} alt="logo" width={40} height={40} />
                     <div className="text-xl font-semibold dark:text-light-1">Tohachat</div>
                 </Link>
                 <Link to={`/profile/${user.id}`} className='flex gap-3 items-center'>

@@ -9,6 +9,7 @@ import { Toaster } from './components/ui/toaster';
 import NotFound from './_root/pages/NotFound';
 
 export default function App() {
+  
   return (
     <>
       <main className='flex h-screen'>
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
         <Toaster />
+
       </main>
     </>
   );
