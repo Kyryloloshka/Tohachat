@@ -5,6 +5,8 @@ import { INavLink } from '@/types';
 import { useEffect } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from '../ui/button';
+import ThemeSwitch from './ThemeSwitch';
+import { useLocalStorage } from 'usehooks-ts';
 
 const LeftSidebar = () => {
     const {mutate: signOut, isSuccess} = useSignOutAccount()
@@ -17,13 +19,13 @@ const LeftSidebar = () => {
             navigate(0);
         }
     }, [isSuccess])
-
     return (
         <nav className='leftsidebar'>
             <div className="flex flex-col gap-11">
+                <ThemeSwitch/>
                 <Link to="/" className='flex gap-1 items-center'>
-                    <img src="/assets/icons/toha-logo-white.svg" alt="logo" width={40} height={40} />
-                    <div className="text-xl font-semibold">Tohachat</div>
+                    {/* <img src={logoSrc} alt="logo" width={40} height={40} /> */}
+                    <div className="text-xl font-semibold dark:text-light-1">Tohachat</div>
                 </Link>
                 <Link to={`/profile/${user.id}`} className='flex gap-3 items-center'>
                     <img 
@@ -31,20 +33,20 @@ const LeftSidebar = () => {
                         alt="profile" 
                         className='h-14 w-14 rounded-full'
                     />
-                    <div className="flex flex-col">
-                        <p className='body-bold'>
+                    <div className="flex flex-col ">
+                        <p className='body-bold dark:text-light-2'>
                             {user.name}
                         </p>
-                        <p className='small-regular text-light-3'>
+                        <p className='small-regular text-dark-3 dark:text-light-2'>
                             @{user.username}
                         </p>
                     </div>
                 </Link>
-                <ul className='flex flex-col gap-6'>
+                <ul className='flex flex-col gap-2'>
                     {sidebarLinks.map((link: INavLink) =>{
                         const isActive = pathname === link.route;
                         return (
-                            <li key={link.label} className={`group leftsidebar-link ${
+                            <li key={link.label} className={`group leftsidebar-link dark:text-light-1 ${
                                 isActive && 'bg-primary-500'
                             }`}>
                                 <NavLink className={"flex gap-4 items-center p-4"} to={`${link.route}`}>
@@ -63,7 +65,7 @@ const LeftSidebar = () => {
                 variant="ghost" className='shad-button_ghost'
             >
                 <img src="/assets/icons/logout.svg" alt="logout" />
-                <p className='small-medium lg-base-medium'>Logout</p>
+                <p className='small-medium lg-base-medium dark:text-light-1'>Logout</p>
             </Button>
         </nav>
     )

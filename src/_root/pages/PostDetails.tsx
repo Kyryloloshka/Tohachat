@@ -33,10 +33,10 @@ const PostDetails = () => {
                       className='rounded-full w-8 h-8 lg:w-12 lg:h-12'
                 />
                 <div className="flex flex-col">
-                <p className='base-medium lg:body-bold text-light-1'>
+                <p className='base-medium lg:body-semibold text-dark-3 dark:text-light-1'>
                     {post?.creator.name}
                 </p>
-                <div className="flex-center gap-2 text-light-3">
+                <div className="items-center flex gap-2 text-primary-600 dark:text-light-3">
                     <p className='subtle-semibold lg:small-regular'>
                         {formatDateAgo(post?.$createdAt || 'no-date')}
                     </p>
@@ -62,14 +62,14 @@ const PostDetails = () => {
                 </Button>
               </div>
             </div>
-            <hr className="border w-full border-dark-4/80" />
+            <hr className="border w-full dark:border-dark-4/80" />
             <div className="flex flex-col flex-1 w-full small-medium lg:base-regular">
-              <p>
+              <p className="text-dark-1 dark:text-light-1">
                   {post?.caption}
               </p>
               <ul className='flex gap-1 mt-2'>
                 {post?.tags.map((tag:string) => (
-                    <li className='text-light-3' key={tag}>
+                    <li className='text-primary-600 dark:text-light-3' key={tag}>
                         #{tag}
                     </li>
                 ))}

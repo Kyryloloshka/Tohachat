@@ -1,11 +1,10 @@
 import GridPostList from "@/components/shared/GridPostList"
 import { Link, Outlet, Route, Routes, useLocation, useParams } from "react-router-dom"
-import { LikedPosts } from "."
 import { useUserContext } from "@/context/AuthContext";
-import { Loader } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import StatBlock from "@/components/shared/StatBlock";
 import { useGetUserById } from "@/lib/react-query/querysAndMutations";
+import Loader from "@/components/shared/Loader";
 
 const Profile = () => {
   const { id } = useParams();
@@ -37,7 +36,7 @@ const Profile = () => {
               <h1 className="text-center xl:text-left h3-bold md:h1-semibold w-full">
                 {currentUser.name}
               </h1>
-              <p className="small-regular md:body-medium text-light-3 text-center xl:text-left">
+              <p className="small-regular md:body-medium text-dark-3 text-center xl:text-left">
                 @{currentUser.username}
               </p>
             </div>
@@ -57,7 +56,7 @@ const Profile = () => {
             <div className={`${user.id !== currentUser.$id && "hidden"}`}>
               <Link
                 to={`/update-profile/${currentUser.$id}`}
-                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${
+                className={`h-12 bg-light-6 px-5 text-dark-1 flex-center gap-2 rounded-lg ${
                   user.id !== currentUser.$id && "hidden"
                 }`}>
                 <img
@@ -84,8 +83,8 @@ const Profile = () => {
         <div className="flex max-w-5xl w-full">
           <Link
             to={`/profile/${id}`}
-            className={`profile-tab rounded-l-lg ${
-              pathname === `/profile/${id}` && "!bg-dark-3"
+            className={`profile-tab rounded-l-lg dark:text-light-2 hover:bg-light-6 hover:dark:bg-dark-3 ${
+              pathname === `/profile/${id}` && "!bg-light-6 dark:!bg-dark-3"
             }`}>
             <img
               src={"/assets/icons/posts.svg"}
@@ -97,8 +96,8 @@ const Profile = () => {
           </Link>
           <Link
             to={`/profile/${id}/liked-posts`}
-            className={`profile-tab rounded-r-lg ${
-              pathname === `/profile/${id}/liked-posts` && "!bg-dark-3"
+            className={`profile-tab rounded-r-lg dark:text-light-2 hover:bg-light-6 hover:dark:bg-dark-3 ${
+              pathname === `/profile/${id}/liked-posts` && "!bg-light-6 dark:!bg-dark-3"
             }`}>
             <img
               src={"/assets/icons/like.svg"}
@@ -114,7 +113,7 @@ const Profile = () => {
       <Routes>
         <Route
           index
-          element={<GridPostList posts={currentUser.posts} showUser={false} />}
+          element={<GridPostList posts={currentUser.posts} whiteLikes={true} showUser={false} />}
         />
         {currentUser.$id === user.id && (
           <Route path="/liked-posts" element={<GridPostList posts={currentUser.liked} showStats={false} showUser={true} />} />

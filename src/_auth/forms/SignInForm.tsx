@@ -60,7 +60,7 @@ function SignInForm() {
           <div className=" text-3xl font-semibold">Tohachat</div>
         </div>
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-center" >Log in to your account</h2>
-        <p className="text-light-3 small-medium md:base-regular mt-2 text-center">Welcome back! please enter your details</p>
+        <p className="text-dark-3 small-medium md:base-regular mt-2 text-center">Welcome back! please enter your details</p>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full mt-4">
           <FormField
@@ -94,7 +94,7 @@ function SignInForm() {
               ? <div className="flex-center gap-2"><Loader/>Loading...</div>
               : "Sign in"
           }</Button>
-          <p className="text-small-regular text-light-2 text-center mt-2">
+          <p className="text-small-regular text-dark-2 text-center mt-2">
             Don't have an account? 
             <Link className="text-primary-500 text-small-semibold ml-1" to="/sign-up">
               Sign up

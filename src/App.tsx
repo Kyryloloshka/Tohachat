@@ -6,6 +6,7 @@ import { AllUsers, CreatePost, EditPost, Explore, Home, LikedPosts, PostDetails,
 import SignInForm from './_auth/forms/SignInForm';
 import SignUpForm from './_auth/forms/SignUpForm';
 import { Toaster } from './components/ui/toaster';
+import NotFound from './_root/pages/NotFound';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/profile/:id/*" element={<Profile/>}/>
             <Route path="/update-profile/:id" element={<UpdateProfile/>}/>
           </Route>
+          <Route path="/*" element={<NotFound/>}/>
         </Routes>
         <Toaster />
       </main>

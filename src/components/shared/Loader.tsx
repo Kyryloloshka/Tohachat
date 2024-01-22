@@ -1,8 +1,11 @@
+type LoaderProps = {
+  height?: number,
+}
 
-const Loader = () => {
+const Loader = ({height}: LoaderProps) => {
   return (
-    <div className='flex-center w-full'>
-        <img src="/assets/icons/loader.svg" alt="loader" width={24} />
+    <div className={`flex-center w-full`}>
+        <img className="inverted-svg" src="/assets/icons/loader.svg" alt="loader" width={height ? height : 24} />
     </div>
   )
 }

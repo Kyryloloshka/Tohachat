@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-dark-1 text-white min-h-screen font-inter;
+    @apply bg-light-1 text-dark-1 min-h-screen font-inter;
   }
 }
 
@@ -76,6 +76,7 @@
   .invert-white {
     @apply invert brightness-0 transition-all;
   }
+  
 
   .flex-center {
     @apply flex justify-center items-center;
@@ -90,18 +91,15 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
-    border-radius: 2px;
+    @apply w-[4px] h-[4px] rounded-[2px];
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: #09090a;
+    @apply bg-light-2 dark:bg-dark-2;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #5c5c7b;
-    border-radius: 50px;
+    @apply bg-light-3 rounded-[50px];
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
@@ -109,7 +107,7 @@
   }
 
   .common-container {
-    @apply flex flex-col flex-1 items-center gap-10 overflow-scroll py-10 px-5 md:px-8 lg:p-14 custom-scrollbar;
+    @apply flex flex-col flex-1 items-center gap-10 overflow-y-scroll py-10 px-5 md:px-8 lg:p-14 custom-scrollbar;
   }
 
   /* All Users */
@@ -123,7 +121,7 @@
 
   /* Explore */
   .explore-container {
-    @apply flex flex-col flex-1 items-center overflow-scroll py-10 px-5 md:p-14 custom-scrollbar;
+    @apply flex flex-col flex-1 items-center overflow-y-scroll py-10 px-5 md:p-14 custom-scrollbar;
   }
 
   .explore-inner_container {
@@ -131,12 +129,12 @@
   }
 
   .explore-search {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
+    @apply h-12 dark:text-white bg-light-6 dark:bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
   }
 
   /* Home */
   .home-container {
-    @apply flex flex-col flex-1 items-center gap-10 overflow-scroll py-10 px-5 md:px-8 lg:p-14 custom-scrollbar;
+    @apply flex flex-col flex-1 items-center gap-10 overflow-y-scroll py-10 px-5 md:px-8 lg:p-14 custom-scrollbar;
   }
 
   .home-posts {
@@ -144,16 +142,16 @@
   }
 
   .home-creators {
-    @apply hidden xl:flex flex-col w-72 2xl:w-465 px-6 py-10 gap-10  overflow-scroll custom-scrollbar;
+    @apply hidden xl:flex flex-col w-72 2xl:w-465 px-6 py-10 gap-10  overflow-y-scroll custom-scrollbar;
   }
 
   /* Post Details */
   .post_details-container {
-    @apply flex flex-col flex-1 gap-10 overflow-scroll py-10 px-5 md:p-14 custom-scrollbar items-center;
+    @apply flex flex-col flex-1 gap-10 overflow-y-scroll py-10 px-5 md:p-14 custom-scrollbar items-center;
   }
 
   .post_details-card {
-    @apply bg-dark-2 w-full max-w-5xl rounded-[20px] overflow-hidden flex-col flex xl:flex-row border border-dark-4 xl:rounded-l-[24px];
+    @apply bg-light-2 dark:bg-dark-2 w-full max-w-5xl rounded-[20px] overflow-hidden flex-col flex xl:flex-row border border-light-2 dark:border-dark-4 xl:rounded-l-[24px];
   }
 
   .post_details-img {
@@ -161,16 +159,16 @@
   }
 
   .post_details-info {
-    @apply bg-dark-2 flex flex-col gap-5 lg:gap-7 flex-1 items-start p-5 rounded-[20px];
+    @apply bg-light-2 dark:bg-dark-2 flex flex-col gap-5 lg:gap-7 flex-1 items-start p-5 rounded-[20px];
   }
 
   .post_details-delete_btn {
-    @apply p-0 flex gap-3 hover:bg-transparent hover:text-light-1  text-light-1 small-medium lg:base-medium;
+    @apply p-0 flex gap-3 hover:bg-transparent hover:text-dark-1  text-dark-1 dark:text-light-1 small-medium lg:base-medium;
   }
 
   /* Profile */
   .profile-container {
-    @apply flex flex-col items-center flex-1 gap-10 overflow-scroll py-10 px-5 md:p-14 custom-scrollbar;
+    @apply flex flex-col items-center flex-1 gap-10 overflow-y-scroll py-10 px-5 md:p-14 custom-scrollbar;
   }
 
   .profile-inner_container {
@@ -178,30 +176,34 @@
   }
 
   .profile-tab {
-    @apply flex-center gap-3 py-4 w-48 bg-dark-2  transition flex-1 xl:flex-initial;
+    @apply flex-center gap-3 py-4 w-48 bg-light-2 dark:bg-dark-2  transition flex-1 xl:flex-initial;
   }
 
   /* Saved */
   .saved-container {
-    @apply flex flex-col flex-1 items-center gap-10 overflow-scroll py-10 px-5 md:p-14 custom-scrollbar;
+    @apply flex flex-col flex-1 items-center gap-10 overflow-y-scroll py-10 px-5 md:p-14 custom-scrollbar;
   }
 
   /* Bottom bar */
   .bottom-bar {
-    @apply z-50 flex-between w-full sticky bottom-0 rounded-t-[20px] bg-dark-2 px-5 py-4 md:hidden;
+    @apply z-50 flex-between w-full sticky bottom-0 rounded-t-[20px] bg-light-2 dark:bg-dark-2 px-5 py-4 md:hidden;
   }
 
   /* File uploader */
   .file_uploader-img {
-    @apply h-80 lg:h-[480px] w-full rounded-[24px] object-cover object-center;
+    @apply h-80 lg:h-[480px] w-full rounded-[20px] object-cover object-center;
   }
 
   .file_uploader-label {
-    @apply text-light-4 text-center small-regular w-full p-4 border-t border-t-dark-4;
+    @apply text-dark-4 dark:text-light-2 text-center small-regular w-full p-4 border-t border-t-dark-4;
   }
 
   .file_uploader-box {
     @apply flex-center flex-col p-7 h-80 lg:h-[612px];
+  }
+
+  .inverted-svg {
+    filter: invert(1)
   }
 
   /* Grid Post List */
@@ -210,16 +212,16 @@
   }
 
   .grid-post_link {
-    @apply flex rounded-[24px] border border-dark-4 overflow-hidden cursor-pointer w-full h-full;
+    @apply flex rounded-[14px] border border-light-2 dark:border-dark-4 overflow-hidden cursor-pointer w-full h-full;
   }
 
   .grid-post_user {
-    @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-dark-3 to-transparent rounded-b-[24px] gap-2;
+    @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-dark-2 to-transparent rounded-b-[14px] gap-2;
   }
 
   /* Left sidebar */
   .leftsidebar {
-    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-dark-2;
+    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-light-2 dark:bg-dark-2;
   }
 
   .leftsidebar-link {
@@ -228,7 +230,7 @@
 
   /* Post Card */
   .post-card {
-    @apply overflow-hidden bg-dark-2 rounded-2xl border border-dark-4 w-full max-w-screen-sm;
+    @apply overflow-hidden bg-light-2 dark:bg-dark-2 rounded-2xl border border-light-2 dark:border-dark-2 w-full max-w-screen-sm;
   }
 
   .post-card_img {
@@ -237,7 +239,7 @@
 
   /* Topbar */
   .topbar {
-    @apply sticky top-0 z-50 md:hidden bg-dark-2 w-full;
+    @apply sticky top-0 z-50 md:hidden bg-light-2 dark:bg-dark-2 w-full;
   }
 
   /* User card */
@@ -250,7 +252,7 @@
   /* SHADCN COMPONENTS */
   /* Form */
   .shad-form_label {
-    @apply text-white !important;
+    @apply text-dark-1 dark:text-light-1 !important;
   }
 
   .shad-form_message {
@@ -258,23 +260,23 @@
   }
 
   .shad-input {
-    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply h-12 bg-light-2 dark:text-light-1 dark:bg-dark-4 border-none placeholder:text-dark-4 dark:placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 dark:ring-offset-dark-3 !important;
   }
 
   .shad-textarea {
-    @apply h-36 bg-dark-3 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+    @apply h-36 bg-light-2 dark:bg-dark-3 dark:text-light-1 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
   }
 
   /* Button */
   .shad-button_primary {
-    @apply bg-primary-500 hover:bg-primary-500 text-light-1 flex gap-2 !important;
+    @apply bg-primary-500 hover:bg-primary-500 text-dark-1 flex gap-2 !important;
   }
 
   .shad-button_dark_4 {
-    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 !important;
+    @apply h-12 bg-light-6 hover:bg-light-5 dark:bg-dark-4 dark:hover:bg-dark-5 px-5 text-dark-1 dark:text-light-1 flex gap-2 !important;
   }
 
   .shad-button_ghost {
-    @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-white !important;
+    @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-dark-1 dark:hover:text-light-1 !important;
   }
 }

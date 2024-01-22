@@ -7,9 +7,10 @@ type GridPostListProps ={
     posts: Models.Document[];
     showUser?: boolean,
     showStats?: boolean,
+    whiteLikes?: boolean,
 }
 
-const GridPostList = ({posts, showUser = true, showStats = true} : GridPostListProps) => {
+const GridPostList = ({posts, showUser = true, showStats = true, whiteLikes} : GridPostListProps) => {
     const { user } = useUserContext()
 
     return (
@@ -24,10 +25,10 @@ const GridPostList = ({posts, showUser = true, showStats = true} : GridPostListP
                         {showUser && (
                             <div className="flex items-center gap-2 justify-start">
                                 <img src={post.creator.imageUrl} alt="creator" className='h-8 w-8 rounded-full' />
-                                <p className='line-clamp-1'>{post.creator.name}</p>
+                                <p className='line-clamp-1 text-light-1'>{post.creator.name}</p>
                             </div>
                         )}
-                        {showStats && <PostStats post={post } userId={user.id}/>}
+                        {showStats && <PostStats whiteLikes={whiteLikes} post={post } userId={user.id}/>}
                     </div>
                 </li>
             ))}

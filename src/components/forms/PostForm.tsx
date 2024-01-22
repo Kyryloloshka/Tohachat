@@ -69,17 +69,17 @@ const PostForm = ({post, action}: PostFormProps) => {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-9 w-full max-w-5xl">
                 <FormField
-                control={form.control}
-                name="caption"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel className="shad-form_label">Caption</FormLabel>
-                    <FormControl>
-                        <Textarea className="shad-textarea" {...field} />
-                    </FormControl>
-                    <FormMessage className="shad-form_message" />
-                    </FormItem>
-                )}
+                    control={form.control}
+                    name="caption"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel className="shad-form_label">Caption</FormLabel>
+                        <FormControl>
+                            <Textarea className="shad-textarea" {...field} />
+                        </FormControl>
+                        <FormMessage className="shad-form_message" />
+                        </FormItem>
+                    )}
                 />
                 <FormField
                 control={form.control}
@@ -101,7 +101,7 @@ const PostForm = ({post, action}: PostFormProps) => {
                     <FormItem>
                     <FormLabel className="shad-form_label">Add Location</FormLabel>
                     <FormControl>
-                        <Input type="text" className="shad-input" {...field} />
+                        <Input type="text" placeholder="Kyiv, Urkaine" className="shad-input" {...field} />
                     </FormControl>
                     <FormMessage className="shad-form_message" />
                     </FormItem>
