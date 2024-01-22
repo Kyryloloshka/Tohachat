@@ -53,7 +53,7 @@ const Profile = () => {
           </div>
 
           <div className="flex justify-center gap-4">
-            <div className={`${user.id !== currentUser.$id && "hidden"}`}>
+            <div className={`flex flex-col gap-3 ${user.id !== currentUser.$id && "hidden"}`}>
               <Link
                 to={`/update-profile/${currentUser.$id}`}
                 className={`h-12 bg-light-6 dark:bg-dark-3 px-5 text-dark-1 dark:text-light-2 flex-center gap-2 rounded-lg ${
@@ -67,6 +67,19 @@ const Profile = () => {
                 />
                 <p className="flex whitespace-nowrap small-medium">
                   Edit Profile
+                </p>
+              </Link>
+              <Link className={`h-12 bg-light-6 dark:bg-dark-3 px-5 text-dark-1 dark:text-light-2 flex-center gap-2 rounded-lg ${
+                  user.id !== currentUser.$id && "hidden"
+                }`} to="/settings">
+                  <img
+                  src={"/assets/icons/settings.svg"}
+                  alt="edit"
+                  width={20}
+                  height={20}
+                />
+                <p className="flex whitespace-nowrap small-medium">
+                  Settings
                 </p>
               </Link>
             </div>

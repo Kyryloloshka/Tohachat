@@ -132,6 +132,9 @@
     @apply h-12 dark:text-white bg-light-6 dark:bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
   }
 
+  .settings-container {
+    @apply flex flex-col flex-1 gap-10 overflow-y-scroll py-10 px-5 md:px-8 lg:p-14 custom-scrollbar;
+  }
   /* Home */
   .home-container {
     @apply flex flex-col flex-1 items-center gap-10 overflow-y-scroll py-10 px-5 md:px-8 lg:p-14 custom-scrollbar;
@@ -221,7 +224,7 @@
 
   /* Left sidebar */
   .leftsidebar {
-    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-light-2 dark:bg-dark-2;
+    @apply hidden md:flex py-10 flex-col justify-between min-w-[270px] bg-light-2 dark:bg-dark-2;
   }
 
   .leftsidebar-link {
@@ -260,7 +263,7 @@
   }
 
   .shad-input {
-    @apply h-12 bg-light-2 dark:text-light-1 dark:bg-dark-4 border-none placeholder:text-dark-4 dark:placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 dark:ring-offset-dark-3 !important;
+    @apply h-12 bg-light-2 dark:text-light-1 dark:bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 dark:ring-offset-dark-3 !important;
   }
 
   .shad-textarea {
@@ -269,11 +272,11 @@
 
   /* Button */
   .shad-button_primary {
-    @apply bg-primary-500 hover:bg-primary-500 text-dark-1 flex gap-2 !important;
+    @apply bg-primary-500 hover:bg-primary-600 transition-all text-dark-1 flex gap-2 !important;
   }
 
   .shad-button_dark_4 {
-    @apply h-12 bg-light-6 hover:bg-light-5 dark:bg-dark-4 dark:hover:bg-dark-5 px-5 text-dark-1 dark:text-light-1 flex gap-2 !important;
+    @apply bg-light-6 hover:bg-light-5 dark:bg-dark-4 dark:hover:bg-dark-5 px-5 text-dark-1 dark:text-light-1 flex gap-2 !important;
   }
 
   .shad-button_ghost {

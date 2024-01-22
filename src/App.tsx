@@ -7,9 +7,21 @@ import SignInForm from './_auth/forms/SignInForm';
 import SignUpForm from './_auth/forms/SignUpForm';
 import { Toaster } from './components/ui/toaster';
 import NotFound from './_root/pages/NotFound';
+import Settings from './_root/pages/Settings';
 
 export default function App() {
-  
+  const element = document.documentElement;
+  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function onWindowMatch() {
+      if (localStorage.theme === 'dark' || (!("theme" in localStorage) && darkQuery.matches)) {
+          element.classList.add("dark");
+      } else {
+          element.classList.remove("dark")
+      }
+  }
+  onWindowMatch()
+
   return (
     <>
       <main className='flex h-screen'>
@@ -30,6 +42,7 @@ export default function App() {
             <Route path="/liked-posts/" element={<LikedPosts/>}/>
             <Route path="/profile/:id/*" element={<Profile/>}/>
             <Route path="/update-profile/:id" element={<UpdateProfile/>}/>
+            <Route path="/settings" element={<Settings/>}/>
           </Route>
           <Route path="/*" element={<NotFound/>}/>
         </Routes>
