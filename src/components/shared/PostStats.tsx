@@ -59,7 +59,7 @@ const PostStats = ({ post, userId, whiteLikes } : PostStatsProps) => {
     }
 
     return (
-        <div className="flex justify-between items-center z-20">
+        <div className="flex justify-between items-center pointer-events-none z-20">
             <div className="flex gap-2 mr-5">
                 <img 
                     src={checkIsLiked(likes, userId) 

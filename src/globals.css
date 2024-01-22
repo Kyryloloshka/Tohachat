@@ -219,7 +219,7 @@
   }
 
   .grid-post_user {
-    @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-dark-2 to-transparent rounded-b-[14px] gap-2;
+    @apply absolute  bottom-0 p-5 flex-between w-full bg-gradient-to-t pointer-events-auto from-dark-2 to-transparent rounded-b-[14px] gap-2;
   }
 
   /* Left sidebar */
