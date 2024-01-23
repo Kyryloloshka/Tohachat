@@ -19,6 +19,8 @@ const Profile = () => {
         <Loader />
       </div>
     );
+  const posts = currentUser.posts.slice().reverse();
+  const likedPosts = currentUser.liked.slice().reverse();
   return (
     <div className="profile-container">
       <div className="profile-inner_container">
@@ -125,12 +127,10 @@ const Profile = () => {
       <Routes>
         <Route
           index
-          element={
-            <GridPostList posts={currentUser.posts} whiteLikes={true} showUser={false} />
-          }
+          element={<GridPostList posts={posts} whiteLikes={true} showUser={false} />}
         />
         {currentUser.$id === user.id && (
-          <Route path="/liked-posts" element={<GridPostList posts={currentUser.liked} showStats={false} showUser={true} />} />
+          <Route path="/liked-posts" element={<GridPostList posts={likedPosts} showStats={false} showUser={true} />} />
         )}
       </Routes>
       <Outlet />
