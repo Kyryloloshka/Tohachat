@@ -37,7 +37,6 @@ function ThemeSwitch() {
     const handleThemeChange = (enabled: boolean) => {
         
         setTheme(enabled ? 'light' : 'dark');
-        console.log("theme", theme);
         
         setEnabled(enabled);
     };

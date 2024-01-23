@@ -18,3 +18,11 @@ export const PostValidation = zod.object({
     location: zod.string().min(2).max(100),
     tags: zod.string().max(100),
 })
+
+export const ProfileValidation = zod.object({
+    file: zod.custom<File[]>(),
+    name: zod.string().min(2, { message: "Name must be at least 2 characters." }),
+    username: zod.string().min(2, { message: "Name must be at least 2 characters." }),
+    email: zod.string().email(),
+    bio: zod.string(),
+  });
