@@ -17,9 +17,9 @@ const TopBar = () => {
     return (
         <section className='topbar'>
             <div className="flex-between py-2 px-5 relative overflow-hidden">
-                <Link to="/" className='flex gap-1 items-center before:bg-dark-4 before:w-[160px] before:-z-10 before:rotate-45 before:h-[160px] before:absolute before:left-0'>
+                <Link to="/" className='flex gap-1 items-center before:bg-dark-4 before:w-[180px] before:-z-10 before:rotate-45 before:h-[180px] before:absolute before:left-0'>
                     <img className='' src={"/assets/icons/toha-logo-white.svg"} alt="logo" width={40} height={40} />
-                    <div className="text-xl font-semibold text-light-1">Tohachat</div>
+                    <div className="text-xl font-semibold text-light-1">Tohachat<span className="font-normal text-sm">{" "}Beta</span></div>
                 </Link>
                 <div className="flex gap-4">
                     <Button 

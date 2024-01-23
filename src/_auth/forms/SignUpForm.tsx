@@ -63,15 +63,13 @@ function SignUpForm() {
   }
   return (
     <Form {...form}>
-
       <div className="sm:w-420 flex-center flex-col">
-      <div className="flex gap-1 items-center"> 
-          <img src="/assets/icons/toha-logo-white.svg" alt="logo" width={56} height={56} />
-          <div className=" text-3xl font-semibold">Tohachat</div>
+        <div className="flex gap-1 items-center"> 
+          <img src="/assets/icons/toha-logo-black.svg" alt="logo" width={56} height={56} />
+          <div className=" text-3xl font-semibold">Tohachat<span className="font-normal text-sm">{" "}Beta</span></div>
         </div>
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12 text-center" >Create a new account</h2>
         <p className="text-dark-3 small-medium md:base-regular mt-2 text-center">To use Tohachat, please enter your details</p>
-
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full mt-4">
           <FormField
             control={form.control}

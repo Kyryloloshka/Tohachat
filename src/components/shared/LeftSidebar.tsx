@@ -23,7 +23,7 @@ const LeftSidebar = () => {
             <div className="flex flex-col gap-12">
                 <Link to="/" className='flex gap-1 items-center bg-dark-4 py-3 px-5'>
                     <img src={"/assets/icons/toha-logo-white.svg"} alt="logo" width={40} height={40} />
-                    <div className="text-xl font-semibold text-light-1">Tohachat</div>
+                    <div className="text-xl font-semibold text-light-1">Tohachat<span className="font-normal text-sm">{" "}Beta</span></div>
                 </Link>
                 <div className="px-5 flex flex-col gap-11">
 
