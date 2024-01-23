@@ -3,6 +3,7 @@ import { formatDateAgo } from '@/lib/utils'
 import { Models } from 'appwrite'
 import { Link } from 'react-router-dom'
 import PostStats from './PostStats'
+import { CharacterLimit } from './CharacterLimit'
 
 type PostCardProps = {
     post: Models.Document,
@@ -14,7 +15,7 @@ const PostCard = ({post}: PostCardProps) => {
     return (
         <div className='post-card'>
             <div className="flex-between gap-y-2 flex flex-wrap p-3 md:p-5">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                     <Link className='w-12 h-12' to={`/profile/${post.creator.$id}`}>
                         <img
                             src={post?.creator?.imageUrl 
@@ -23,17 +24,18 @@ const PostCard = ({post}: PostCardProps) => {
                             className='rounded-full w-12 h-12'
                         />
                     </Link>
-                    <div className="flex flex-col w-[calc(100%-60px)]">
-                        <p className='base-medium lg:body-bold text-dark-1 dark:text-light-1'>
-                            {post.creator.name}
-                        </p>
+                    <div className="w-[calc(100%-60px)]">
+                        
                         <div className="items-center flex flex-wrap gap-x-2 text-primary-600 dark:text-light-3">
-                            <p className='subtle-semibold lg:small-regular'>
+                            <div className='subtle-semibold lg:small-regular'>
+                                <p className='base-medium lg:body-bold text-dark-1 dark:text-light-1'>
+                                    {post.creator.name}
+                                </p>
                                 {formatDateAgo(post.$createdAt)}
-                            </p>
+                            </div>
                             -
-                            <p className='subtle-semibold lg-small-regular w-[calc(100%-150px)]'>
-                                {post.location}
+                            <p className='subtle-semibold lg-small-regular text-wrap max-w-[calc(100%-50px)] truncate'>
+                                {post?.location}
                             </p>
                         </div>
                     </div>
@@ -53,8 +55,8 @@ const PostCard = ({post}: PostCardProps) => {
                     </p>
                     <ul className='flex gap-1 mt-2 flex-wrap'>
                         {post.tags.map((tag:string) => (
-                            <li className='text-primary-600 dark:text-light-3' key={tag}>
-                                #{tag}
+                            <li className='text-primary-600 dark:text-light-3 trancate' key={tag}>
+                                #<CharacterLimit text={tag} limit={30}/>
                             </li>
                         ))}
                     </ul>

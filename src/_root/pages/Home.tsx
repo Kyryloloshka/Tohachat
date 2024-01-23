@@ -4,13 +4,14 @@ import { useGetRecentPosts } from "@/lib/react-query/querysAndMutations";
 import { Models } from "appwrite";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
   const {ref, inView} = useInView()
   const {data: posts, fetchNextPage, hasNextPage} = useGetRecentPosts();
   useEffect(() => {
     if (inView) fetchNextPage();
-  }, [inView])
+  }, [inView, fetchNextPage])
 
   if (!posts) {
     return <div className="flex-center w-full h-full">
@@ -25,7 +26,7 @@ const Home = () => {
             <ul className="flex flex-col flex-1 gap-9 w-full">
               {
                 posts?.pages.map((item) => (
-                  <div className="flex flex-col flex-1 gap-9 w-full" key={item.id}>
+                  <div className="flex flex-col flex-1 gap-9 w-full" key={uuidv4()}>
                       {item.documents?.map((post: Models.Document) => (
                           <PostCard key={post.$id} post={post} />
                       ))}

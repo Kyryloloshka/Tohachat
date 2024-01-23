@@ -19,7 +19,6 @@ const Profile = () => {
         <Loader />
       </div>
     );
-
   return (
     <div className="profile-container">
       <div className="profile-inner_container">
@@ -126,7 +125,9 @@ const Profile = () => {
       <Routes>
         <Route
           index
-          element={<GridPostList posts={currentUser.posts} whiteLikes={true} showUser={false} />}
+          element={
+            <GridPostList posts={currentUser.posts} whiteLikes={true} showUser={false} />
+          }
         />
         {currentUser.$id === user.id && (
           <Route path="/liked-posts" element={<GridPostList posts={currentUser.liked} showStats={false} showUser={true} />} />

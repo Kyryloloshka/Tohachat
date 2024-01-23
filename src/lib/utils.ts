@@ -35,3 +35,4 @@ export function formatDateAgo(timestamp: string): string {
 export const checkIsLiked = (likeList: string[], userId: string) => {
   return likeList.includes(userId);
 };
+

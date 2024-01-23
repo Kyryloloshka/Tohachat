@@ -154,11 +154,11 @@
   }
 
   .post_details-card {
-    @apply bg-light-2 dark:bg-dark-2 w-full max-w-5xl rounded-[20px] overflow-hidden flex-col flex xl:flex-row border border-light-2 dark:border-dark-4 xl:rounded-l-[24px];
+    @apply bg-light-2 xl:max-h-[500px] dark:bg-dark-2 w-full max-w-5xl rounded-[14px] overflow-hidden flex-col flex xl:flex-row border border-light-2 dark:border-dark-4 xl:rounded-l-[20px];
   }
 
   .post_details-img {
-    @apply max-h-[500px] min-h-[200px] xl:w-[48%] object-cover;
+    @apply max-h-[500px] min-h-[200px] xl:w-[48%] object-cover self-center;
   }
 
   .post_details-info {
@@ -237,7 +237,7 @@
   }
 
   .post-card_img {
-    @apply max-h-[500px] min-h-[200px] w-full object-cover;
+    @apply max-h-[600px] min-h-[200px] w-full object-cover;
   }
 
   /* Topbar */
@@ -247,7 +247,7 @@
 
   /* User card */
   .user-card {
-    @apply flex-center flex-col gap-4 border border-dark-4 rounded-[20px] px-5 py-8;
+    @apply flex-center flex-col gap-4 border border-light-3 dark:border-dark-4 rounded-[20px] px-5 py-8;
   }
 }
 
@@ -272,7 +272,7 @@
 
   /* Button */
   .shad-button_primary {
-    @apply bg-primary-500 hover:bg-primary-600 transition-all text-dark-1 flex gap-2 !important;
+    @apply bg-primary-500 hover:bg-primary-600 transition-all text-light-1 flex gap-2 !important;
   }
 
   .shad-button_dark_4 {

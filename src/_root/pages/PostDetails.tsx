@@ -1,3 +1,4 @@
+import { CharacterLimit } from "@/components/shared/CharacterLimit";
 import Loader from "@/components/shared/Loader";
 import PostStats from "@/components/shared/PostStats";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,7 @@ const PostDetails = () => {
         ? <Loader />
         : <div className="post_details-card">
             <img src={post?.imageUrl} alt="post" className="post_details-img" />
-            <div className="post_details-info">
+            <div className="post_details-info overflow-y-auto custom-scrollbar">
               <div className="flex-between w-full flex-wrap gap-x-2 gap-y-1">
 
               <Link to={`/profile/${post?.creator.$id}`}
@@ -36,12 +37,12 @@ const PostDetails = () => {
                 <p className='base-medium lg:body-semibold text-dark-3 dark:text-light-1'>
                     {post?.creator.name}
                 </p>
-                <div className="items-center flex gap-2 text-primary-600 dark:text-light-3">
-                    <p className='subtle-semibold lg:small-regular'>
+                <div className="items-center flex flex-wrap sm:flex-nowrap  gap-2 text-primary-600 dark:text-light-3">
+                    <p className='subtle-semibold lg:small-regular text-nowrap'>
                         {formatDateAgo(post?.$createdAt || 'no-date')}
                     </p>
                     -
-                    <p className='subtle-semibold lg-small-regular'>
+                    <p className='subtle-semibold lg-small-regular text-wrap max-w-[calc(100%-50px)] truncate'>
                         {post?.location}
                     </p>
                   </div>
@@ -67,10 +68,10 @@ const PostDetails = () => {
               <p className="text-dark-1 dark:text-light-1">
                   {post?.caption}
               </p>
-              <ul className='flex gap-1 mt-2'>
+              <ul className='flex gap-1 mt-2 flex-wrap'>
                 {post?.tags.map((tag:string) => (
-                    <li className='text-primary-600 dark:text-light-3' key={tag}>
-                        #{tag}
+                    <li className='text-primary-600 limit-characters dark:text-light-3 truncate' key={tag}>
+                        #<CharacterLimit text={tag} limit={30}/>
                     </li>
                 ))}
               </ul>
