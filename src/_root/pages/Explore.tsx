@@ -46,7 +46,7 @@ const Explore = () => {
       <div className="flex-between w-full max-w-5xl mt-16 mb-7">
         <h3 className="body-bold md:h3-bold dark:text-light-1">Popular Today</h3>
 
-        <div className="flex-center gap-3 bg-light-6 dark:bg-dark-4  rounded-xl px-4 py-2 cursor-pointer">
+        <div className="flex-center gap-3 bg-light-6 dark:bg-dark-4 rounded-xl px-4 py-2 cursor-pointer">
           <p className="small-medium md:base-medium text-dark-2 dark:text-light-2">
             All
           </p>

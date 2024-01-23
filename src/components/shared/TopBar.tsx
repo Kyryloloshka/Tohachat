@@ -3,26 +3,23 @@ import { Button } from '../ui/button'
 import { useSignOutAccount } from '@/lib/react-query/querysAndMutations'
 import { useEffect } from 'react'
 import { useUserContext } from '@/context/AuthContext'
-import { useLocalStorage } from 'usehooks-ts'
 
 const TopBar = () => {
     const {mutate: signOut, isSuccess} = useSignOutAccount()
     const navigate = useNavigate();
     const {user} = useUserContext()
-    const [theme] = useLocalStorage('theme', 'light')
     
     useEffect(() => {
         if (isSuccess) {
             navigate(0);
         }
     }, [isSuccess])
-    const logoSrc = theme === 'dark' ? "/assets/icons/toha-logo-white.svg" : "/assets/icons/toha-logo-black.svg";
     return (
         <section className='topbar'>
-            <div className="flex-between py-4 px-5">
-                <Link to="/" className='flex gap-1 items-center'>
-                    <img src={logoSrc} alt="logo" width={40} height={40} />
-                    <div className="text-xl font-semibold dark:text-light-1">Tohachat</div>
+            <div className="flex-between py-2 px-5 relative overflow-hidden">
+                <Link to="/" className='flex gap-1 items-center before:bg-dark-4 before:w-[160px] before:-z-10 before:rotate-45 before:h-[160px] before:absolute before:left-0'>
+                    <img className='' src={"/assets/icons/toha-logo-white.svg"} alt="logo" width={40} height={40} />
+                    <div className="text-xl font-semibold text-light-1">Tohachat</div>
                 </Link>
                 <div className="flex gap-4">
                     <Button 

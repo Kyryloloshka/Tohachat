@@ -12,7 +12,7 @@ const Bottombar = () => {
         return (
           <Link 
             key={link.label} 
-            className={`flex-center flex-col gap-1 p-2 transition-all rounded-[10px] ${
+            className={`flex-center flex-col gap-1 pt-2 pb-3 px-4 transition-all rounded-t-[15px] ${
               isActive && 'bg-primary-500 '
             }`} 
             to={`${link.route}`}

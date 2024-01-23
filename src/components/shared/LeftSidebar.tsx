@@ -21,7 +21,7 @@ const LeftSidebar = () => {
     return (
         <nav className='leftsidebar'>
             <div className="flex flex-col gap-12">
-                <Link to="/" className='flex gap-1 items-center bg-dark-2 py-3 px-5'>
+                <Link to="/" className='flex gap-1 items-center bg-dark-4 py-3 px-5'>
                     <img src={"/assets/icons/toha-logo-white.svg"} alt="logo" width={40} height={40} />
                     <div className="text-xl font-semibold text-light-1">Tohachat</div>
                 </Link>
