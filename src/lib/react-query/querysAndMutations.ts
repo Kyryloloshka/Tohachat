@@ -10,7 +10,6 @@ import {
     signInAccount,
     signOutAccount,
     createPost,
-    getRecentPosts,
     likePost,
     savePost,
     deleteSavedPost,
