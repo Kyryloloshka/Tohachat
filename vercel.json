@@ -1,0 +1,17 @@
+{
+  "rewrites": [
+    { "source": "/sign-in", "destination": "/index.html" },
+    { "source": "/sign-up", "destination": "/index.html" },
+    { "source": "/explore", "destination": "/index.html" },
+    { "source": "/saved", "destination": "/index.html" },
+    { "source": "/all-users", "destination": "/index.html" },
+    { "source": "/create-post", "destination": "/index.html" },
+    { "source": "/update-post/:id", "destination": "/index.html" },
+    { "source": "/posts/:id", "destination": "/index.html" },
+    { "source": "/liked-posts", "destination": "/index.html" },
+    { "source": "/profile/:id/*", "destination": "/index.html" },
+    { "source": "/update-profile/:id", "destination": "/index.html" },
+    { "source": "/settings", "destination": "/index.html" },
+    { "source": "/:path*", "destination": "/index.html" }
+  ]
+}
