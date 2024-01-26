@@ -73,14 +73,14 @@ const Explore = () => {
           )
         }
       </div>
-      {hasNextPage ? (
-        <div ref={ref} className="mt-10">
-          <Loader/>
-        </div>
-      ) : <div className="flex flex-col items-center">
-        <img src="/assets/icons/check.svg" width={100} height={100} alt="ok" />
-        <p className="text-primary-500 text-center w-full capitalize">You have viewed all posts </p>
-      </div>}
+      {hasNextPage && !searchValue ? (
+            <div ref={ref} className="mt-10">
+              <Loader/>
+            </div>
+          ) : !searchValue && <div className="flex flex-col items-center">
+            <img src="/assets/icons/check.svg" width={100} height={100} alt="ok" />
+            <p className="text-primary-500 text-center w-full capitalize">You have viewed all posts </p>
+          </div>}
     </div>
   )
 }
