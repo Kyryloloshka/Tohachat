@@ -16,8 +16,8 @@ const PostStats = ({ post, userId, whiteLikes } : PostStatsProps) => {
     const [likes, setLikes] = useState(likesList);
     const [isSaved, setIsSaved] = useState(false);
 
-    const { mutate: likePost } = useLikedPost()
-    const { mutate: savePost, isLoading: isLoadingPost } = useSavePost()
+    const { mutate: likePost, isLoading: isLoadingLike } = useLikedPost()
+    const { mutate: savePost, isLoading: isLoadingSave } = useSavePost()
     const { mutate: deleteSavedPost } = useDeleteSavedPost()
 
     const { data: currentUser } = useGetCurrentUser()
@@ -61,7 +61,7 @@ const PostStats = ({ post, userId, whiteLikes } : PostStatsProps) => {
     return (
         <div className="flex justify-between items-center z-20">
             <div className="flex gap-2 mr-5">
-                <img 
+                {isLoadingLike ? <Loader height={20} /> : <> <img 
                     src={checkIsLiked(likes, userId) 
                         ? "/assets/icons/liked.svg" 
                         : "/assets/icons/like.svg"}
@@ -70,11 +70,12 @@ const PostStats = ({ post, userId, whiteLikes } : PostStatsProps) => {
                     height={20} 
                     onClick={(e) => handleLikePost(e)}
                     className="cursor-pointer"
-                /> 
-                <p className={`small-medium lg:base-medium dark:text-light-1 ${whiteLikes ? "text-light-1" : ""}`}>{likes.length}</p>
+                />
+                <p className={`small-medium h-[20px] lg:base-medium dark:text-light-1 ${whiteLikes ? "text-light-1" : ""}`}>{likes.length}</p>
+                </>}
             </div>
             <div className="flex gap-2">
-                {isLoadingPost ? <Loader height={15}/> : <img 
+                {isLoadingSave ? <Loader height={20}/> : <img 
                     src={isSaved ? "/assets/icons/saved.svg" :  "/assets/icons/save.svg"}
                     alt="save"
                     width={20}
