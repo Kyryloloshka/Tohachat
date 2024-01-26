@@ -17,11 +17,12 @@ import {
     getPostById,
     updatePost,
     deletePost,
-    getInfinitePosts,
     searchPosts,
     getUserById,
     getUsers,
     updateUser,
+    getInfinitePosts,
+    getInfiniteRecentPosts,
   } from "@/lib/appwrite/api";
   import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
 
@@ -57,7 +58,7 @@ export const useCreatePost = () => {
 export const useGetRecentPosts = () => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
-    queryFn: getInfinitePosts as any,
+    queryFn: getInfiniteRecentPosts as any,
     getNextPageParam: (lastPage: any) => {
       if (lastPage && lastPage.documents.length === 0) {
         return null;
