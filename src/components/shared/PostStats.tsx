@@ -48,11 +48,9 @@ const PostStats = ({ post, userId, whiteLikes } : PostStatsProps) => {
         e.stopPropagation();
         
         if (savedPostRecord) {
-            
             setIsSaved(false);
             deleteSavedPost(savedPostRecord.$id)
         } else {
-            
             savePost({userId, postId: post?.$id || ''})
             setIsSaved(true);
         }

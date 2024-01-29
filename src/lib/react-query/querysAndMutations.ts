@@ -167,9 +167,6 @@ export const useDeletePost = () => {
         queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
       });
     },
-    onError: (e) => {
-      console.log(e);
-    }
   });
 };
 

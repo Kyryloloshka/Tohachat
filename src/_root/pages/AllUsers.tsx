@@ -6,7 +6,7 @@ import { useGetUsers } from "@/lib/react-query/querysAndMutations";
 const AllUsers = () => {
   const { toast } = useToast();
 
-  const { data: creators, isLoading, isError: isErrorCreators } = useGetUsers();
+  const { data: creators, isLoading, isError: isErrorCreators } = useGetUsers(20);
 
   if (isErrorCreators) {
     toast({ title: "Something went wrong." });

@@ -26,22 +26,6 @@ const LeftSidebar = () => {
                     <div className="text-xl font-semibold text-light-1">Tohachat<span className="font-normal text-sm">{" "}Beta</span></div>
                 </Link>
                 <div className="px-5 flex flex-col gap-11">
-
-                    <Link to={`/profile/${user.id}`} className='flex gap-3 items-center'>
-                        <img 
-                            src={user.imageUrl || "/assets/icons/profile-placeholder.svg"} 
-                            alt="profile" 
-                            className='h-14 w-14 rounded-full'
-                        />
-                        <div className="flex flex-col ">
-                            <p className='body-bold dark:text-light-2'>
-                                {user.name}
-                            </p>
-                            <p className='small-regular text-dark-3 dark:text-light-2'>
-                                @{user.username}
-                            </p>
-                        </div>
-                    </Link>
                     <ul className='flex flex-col gap-2'>
                         {sidebarLinks.map((link: INavLink) =>{
                             const isActive = pathname === link.route;
@@ -50,7 +34,7 @@ const LeftSidebar = () => {
                                     isActive && 'bg-primary-500'
                                 }`}>
                                     <NavLink className={"flex gap-4 items-center p-4"} to={`${link.route}`}>
-                                        <img className={`transition-all group-hover:invert-white ${
+                                        <img height={24} width={24} className={`transition-all group-hover:invert-white ${
                                             isActive && "invert-white"
                                         }`} src={link.imgURL} alt={link.label} />
                                         {link.label}
@@ -58,9 +42,22 @@ const LeftSidebar = () => {
                                 </li>
                             )
                         })}
+                        <li className={`group leftsidebar-link dark:text-light-1 ${
+                                    pathname.startsWith('/profile/') && 'bg-primary-500'
+                                }`}>
+                            <Link to={`/profile/${user.id}`} className='flex gap-4 items-center p-4 dark:text-light-1 font-medium'>
+                                <img 
+                                    src={user.imageUrl || "/assets/icons/profile-placeholder.svg"} 
+                                    alt="profile" 
+                                    className='rounded-full scale-150'
+                                    height={24}
+                                    width={24}
+                                />
+                                Profile
+                            </Link>
+                        </li>
                     </ul>
-                </div>
-
+                </div>   
             </div>
             <Button 
                 onClick={() => signOut()}

@@ -24,7 +24,7 @@ export default function App() {
 
   return (
     <>
-      <main className='flex h-screen'>
+      <main className='flex h-[100vh] h-[100dvh]'>
         <Routes>
           <Route element={<AuthLayout />}>
             <Route path={"/sign-in"} element={<SignInForm/>} />
@@ -39,7 +39,6 @@ export default function App() {
             <Route path="/create-post" element={<CreatePost/>}/>
             <Route path="/update-post/:id" element={<EditPost/>}/>
             <Route path="/posts/:id" element={<PostDetails/>}/>
-            <Route path="/liked-posts/" element={<LikedPosts/>}/>
             <Route path="/profile/:id/*" element={<Profile/>}/>
             <Route path="/update-profile/:id" element={<UpdateProfile/>}/>
             <Route path="/settings" element={<Settings/>}/>

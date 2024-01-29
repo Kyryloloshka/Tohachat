@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-light-1 text-dark-1 min-h-screen font-inter;
+    @apply bg-light-1 text-dark-1 min-h-[100vh] h-[100dvh] font-inter;
   }
 }
 
@@ -112,11 +112,11 @@
 
   /* All Users */
   .user-container {
-    @apply max-w-5xl flex h-[calc(100%-56px-66px)] md:h-full flex-col items-start w-full gap-6 md:gap-9;
+    @apply max-w-5xl flex md:h-full flex-col items-start w-full gap-6 md:gap-9;
   }
 
   .user-grid {
-    @apply w-full grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 max-w-5xl;
+    @apply w-full md:pb-10 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 max-w-5xl;
   }
 
   /* Explore */
